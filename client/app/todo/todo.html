@@ -1,42 +1,49 @@
-<div class="text-center" ng-controller="TodoCtrl">
+<div class="text-center " ng-controller="TodoCtrl" style="width: 400px; margin: auto">
     <div>
-        <h1>Todo App</h1>
+        <h2>Todo App</h2>
     </div>
-    <Form>
-        <input type="text" ng-model="newTodo.title"/>
-        <button ng-click="add()">
-            Add Todo
-        </button>
-    </Form>
 
-    <div ng-repeat="todo in todos">
-        <input type="checkbox" ng-model="todo.completed"/>
-        <span ng-class="{completed:todo.completed}">{{todo.title}}</span>
-        <button ng-click="delete(todo)">X</button>
+    <table class="table table-striped table-bordered ">
+        <thead>
+        <tr>
+            <th colspan="2" width="80%">
+                <input style="width:100%;" type="text" ng-model="newTodo.title"/>
+            </th>
+            <th width="20%">
+                <button class="btn btn-success" ng-click="add()">
+                    <i class="fa fa-plus-square"></i>
+                    Todo
+                </button>
+            </th>
+        </tr>
+        </thead>
+
+
+        <tr ng-repeat="todo in todos | TodoFilter:criteria">
+            <td><input type="checkbox" ng-model="todo.completed"/></td>
+            <td class="text-left"><span ng-class="{completed:todo.completed}">{{todo.title}}</span></td>
+            <td>
+                <button class="btn btn-link btn-sm btn-danger" ng-click="delete(todo)"><i class="fa fa-remove "></i>
+                </button>
+
+            </td>
+        </tr>
+
+    </table>
+    <div class="btn-group">
+        <button class="btn btn-link" ng-click="criteria='all'">
+            All
+        </button>
+        <button class="btn btn-link" ng-click="criteria='completed'">
+            Completed
+        </button>
+        <button class="btn btn-link" ng-click="criteria='active'">
+            Active
+        </button>
     </div>
     <div>
-        <button ng-click="clearCompleted()"> Clear Completed</button>
+        <button class="btn btn-success" ng-click="clearCompleted()"> Clear Completed</button>
     </div>
 </div>
 
 
-<div class="text-center" ng-controller="TodoCtrl">
-    <div>
-        <h1>Todo App</h1>
-    </div>
-    <Form>
-        <input type="text" ng-model="newTodo.title"/>
-        <button ng-click="add()">
-            Add Todo
-        </button>
-    </Form>
-
-    <div ng-repeat="todo in todos">
-        <input type="checkbox" ng-model="todo.completed"/>
-        <span ng-class="{completed:todo.completed}">{{todo.title}}</span>
-        <button ng-click="delete(todo)">X</button>
-    </div>
-    <div>
-        <button ng-click="clearCompleted()"> Clear Completed</button>
-    </div>
-</div>
