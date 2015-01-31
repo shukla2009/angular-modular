@@ -1,0 +1,42 @@
+<div class="text-center" ng-controller="TodoCtrl">
+    <div>
+        <h1>Todo App</h1>
+    </div>
+    <Form>
+        <input type="text" ng-model="newTodo.title"/>
+        <button ng-click="add()">
+            Add Todo
+        </button>
+    </Form>
+
+    <div ng-repeat="todo in todos">
+        <input type="checkbox" ng-model="todo.completed"/>
+        <span ng-class="{completed:todo.completed}">{{todo.title}}</span>
+        <button ng-click="delete(todo)">X</button>
+    </div>
+    <div>
+        <button ng-click="clearCompleted()"> Clear Completed</button>
+    </div>
+</div>
+
+
+<div class="text-center" ng-controller="TodoCtrl">
+    <div>
+        <h1>Todo App</h1>
+    </div>
+    <Form>
+        <input type="text" ng-model="newTodo.title"/>
+        <button ng-click="add()">
+            Add Todo
+        </button>
+    </Form>
+
+    <div ng-repeat="todo in todos">
+        <input type="checkbox" ng-model="todo.completed"/>
+        <span ng-class="{completed:todo.completed}">{{todo.title}}</span>
+        <button ng-click="delete(todo)">X</button>
+    </div>
+    <div>
+        <button ng-click="clearCompleted()"> Clear Completed</button>
+    </div>
+</div>
